@@ -12,8 +12,11 @@ build/
 
 # Testing
 coverage/
+test-results/
 playwright-report/
 test-results/
+playwright/.cache/
+playwright/.auth/
 
 # TypeScript
 *.tsbuildinfo
@@ -26,3 +29,4 @@ next-env.d.ts
 
 # Logs
 *.log
+
