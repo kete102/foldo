@@ -1,0 +1,22 @@
+@theme {
+	/* Container widths */
+	--container-reading: 45rem;
+	--container-content: 60rem;
+	--container-page: 80rem;
+	--container-wide: 90rem;
+
+	/* Controls */
+	--spacing-control-sm: 2rem;
+	--spacing-control-md: 2.5rem;
+	--spacing-control-lg: 3rem;
+	--spacing-control-xl: 3.5rem;
+
+	/* Application shell */
+	--spacing-header: 4.5rem;
+	--spacing-sidebar: 16rem;
+
+	/* Icons */
+	--spacing-icon-sm: 1rem;
+	--spacing-icon-md: 1.25rem;
+	--spacing-icon-lg: 1.5rem;
+}

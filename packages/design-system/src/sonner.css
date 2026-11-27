@@ -1,0 +1,84 @@
+[data-sonner-toaster].foldo-toaster {
+	z-index: 70;
+	font-family: var(--font-sans);
+}
+
+[data-sonner-toast].foldo-toast {
+	padding: 16px;
+	gap: 12px;
+
+	background: var(--popover);
+	color: var(--popover-foreground);
+
+	border: 1px solid var(--border);
+	border-radius: var(--radius-lg);
+	background-clip: padding-box;
+
+	box-shadow: var(--shadow-elevation-2);
+}
+
+[data-sonner-toast] .foldo-toast-title {
+	font-size: var(--text-body-sm);
+	line-height: 1.5;
+	font-weight: 500;
+}
+
+[data-sonner-toast] .foldo-toast-description {
+	color: var(--muted-foreground);
+	font-size: var(--text-caption);
+	line-height: 1.5;
+}
+
+[data-sonner-toast] .foldo-toast-action,
+[data-sonner-toast] .foldo-toast-cancel {
+	min-height: 28px;
+	padding-inline: 10px;
+
+	border-radius: var(--radius-sm);
+
+	font-family: inherit;
+	font-size: var(--text-caption);
+	font-weight: 500;
+
+	transition:
+		background-color var(--duration-fast) var(--ease-standard),
+		color var(--duration-fast) var(--ease-standard);
+}
+
+[data-sonner-toast] .foldo-toast-action {
+	background: var(--primary);
+	color: var(--primary-foreground);
+}
+
+[data-sonner-toast] .foldo-toast-action:hover {
+	background: var(--primary-hover);
+}
+
+[data-sonner-toast] .foldo-toast-cancel {
+	background: var(--muted);
+	color: var(--foreground);
+}
+
+[data-sonner-toast] .foldo-toast-close {
+	background: var(--popover);
+	color: var(--muted-foreground);
+	border-color: var(--border);
+}
+
+[data-sonner-toast] .foldo-toast-close:hover {
+	background: var(--muted);
+	color: var(--foreground);
+}
+
+[data-sonner-toast] button:focus-visible {
+	outline: 2px solid var(--ring);
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	[data-sonner-toast].foldo-toast,
+	[data-sonner-toast].foldo-toast button {
+		transition-duration: 0ms;
+		animation-duration: 0ms;
+	}
+}

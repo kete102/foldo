@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
 			},
 		},
 	},
+	transpilePackages: ["@foldo/ui"],
 };
 
 export default nextConfig;

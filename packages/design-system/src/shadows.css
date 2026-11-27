@@ -1,0 +1,5 @@
+@theme {
+	--shadow-elevation-1: 0 1px 3px rgb(34 34 34 / 0.08);
+	--shadow-elevation-2: 0 4px 12px rgb(34 34 34 / 0.12);
+	--shadow-elevation-3: 0 12px 32px rgb(34 34 34 / 0.16);
+}

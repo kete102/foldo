@@ -33,6 +33,16 @@ Foldo is a privacy-first document productivity platform built around local-first
 - Validate untrusted external inputs.
 - Avoid unnecessary type assertions.
 
+## Design system
+
+- Follow the design philosophy defined in `docs/DESIGN.md`.
+- Preserve Foldo's visual identity across all interfaces.
+- Avoid generic SaaS templates and AI-generated aesthetics.
+- Use existing design tokens and components.
+- Prioritize thoughtful interactions and subtle motion.
+- Do not introduce new visual patterns without justification.
+- Respect accessibility and reduced-motion preferences.
+
 ## Privacy and security
 
 - Never expose server-side secrets to the client.
