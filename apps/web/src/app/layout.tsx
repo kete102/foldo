@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { satoshi } from "@/fonts";
 
 import "./globals.css";
+import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
 	title: "foldo",
@@ -16,7 +17,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
 		<html lang="en" className={satoshi.variable}>
-			<body className="min-h-full flex flex-col">{children}</body>
+			<body className="min-h-full flex flex-col">
+				<Providers>{children}</Providers>
+			</body>
 		</html>
 	);
 }

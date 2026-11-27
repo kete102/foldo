@@ -1,33 +1,67 @@
+import { cn } from "@foldo/ui/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "cn";
 import { Slot } from "radix-ui";
 import type * as React from "react";
+import { Spinner } from "./spinner";
 
 const buttonVariants = cva(
-	"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+	[
+		"inline-flex shrink-0 items-center justify-center",
+		"gap-2 whitespace-nowrap rounded-lg font-medium",
+		"cursor-pointer outline-none",
+
+		// Motion
+		"transition-[color,background-color,border-color,box-shadow,scale]",
+		"duration-(--duration-fast) ease-standard",
+		"active:scale-[0.98]",
+		"motion-reduce:transition-none",
+		"motion-reduce:active:scale-100",
+
+		// Focus
+		"focus-visible:ring-2",
+		"focus-visible:ring-ring",
+		"focus-visible:ring-offset-2",
+		"focus-visible:ring-offset-background",
+
+		// Disabled
+		"disabled:cursor-not-allowed",
+		"disabled:opacity-50",
+		"disabled:active:scale-100",
+
+		// Icons
+		"[&_svg]:pointer-events-none",
+		"[&_svg]:shrink-0",
+		"[&_svg:not([class*='size-'])]:size-icon-md",
+	],
 	{
 		variants: {
 			variant: {
-				default: "bg-primary text-primary-foreground hover:bg-primary/90",
-				destructive:
-					"bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40",
-				outline:
-					"border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+				default: "bg-primary text-primary-foreground hover:bg-primary-hover",
+
 				secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-				ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+
+				outline: "border border-border bg-background hover:bg-accent hover:text-accent-foreground",
+
+				ghost: "hover:bg-accent hover:text-accent-foreground",
+
+				destructive:
+					"bg-destructive text-destructive-foreground hover:bg-destructive/90 focus-visible:ring-destructive",
+
 				link: "text-primary underline-offset-4 hover:underline",
 			},
+
 			size: {
-				default: "h-9 px-4 py-2 has-[>svg]:px-3",
-				xs: "h-6 gap-1 rounded-md px-2 text-xs has-[>svg]:px-1.5 [&_svg:not([class*='size-'])]:size-3",
-				sm: "h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5",
-				lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-				icon: "size-9",
-				"icon-xs": "size-6 rounded-md [&_svg:not([class*='size-'])]:size-3",
-				"icon-sm": "size-8",
-				"icon-lg": "size-10",
+				sm: "h-control-sm px-3 text-sm",
+				default: "h-control-md px-4 text-sm",
+				lg: "h-control-lg px-6 text-base",
+				xl: "h-control-xl px-8 text-base",
+
+				"icon-sm": "size-control-sm",
+				icon: "size-control-md",
+				"icon-lg": "size-control-lg",
 			},
 		},
+
 		defaultVariants: {
 			variant: "default",
 			size: "default",
@@ -35,27 +69,50 @@ const buttonVariants = cva(
 	},
 );
 
+type ButtonProps = React.ComponentProps<"button"> &
+	VariantProps<typeof buttonVariants> & {
+		asChild?: boolean;
+		loading?: boolean;
+	};
+
 function Button({
 	className,
 	variant = "default",
 	size = "default",
 	asChild = false,
+	loading = false,
+	disabled,
+	children,
+	type = "button",
 	...props
-}: React.ComponentProps<"button"> &
-	VariantProps<typeof buttonVariants> & {
-		asChild?: boolean;
-	}) {
+}: ButtonProps) {
 	const Comp = asChild ? Slot.Root : "button";
 
 	return (
 		<Comp
+			{...props}
 			data-slot="button"
 			data-variant={variant}
 			data-size={size}
-			className={cn(buttonVariants({ variant, size, className }))}
-			{...props}
-		/>
+			data-loading={loading || undefined}
+			aria-busy={loading || undefined}
+			className={cn(buttonVariants({ variant, size }), className)}
+			{...(!asChild && {
+				type,
+				disabled: disabled || loading,
+			})}
+		>
+			{asChild ? (
+				children
+			) : (
+				<>
+					{loading && <Spinner size="sm" aria-hidden="true" role="presentation" />}
+					{children}
+				</>
+			)}
+		</Comp>
 	);
 }
 
 export { Button, buttonVariants };
+export type { ButtonProps };
