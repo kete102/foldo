@@ -50,6 +50,11 @@ import {
 } from "lucide-react";
 import { type ReactNode, useState } from "react";
 
+const documentSections = Array.from({ length: 12 }, (_, index) => ({
+	id: `document-section-${index + 1}`,
+	title: `Section ${index + 1}`,
+}));
+
 function Example({ title, children }: { title: string; children: ReactNode }) {
 	return (
 		<div className="rounded-xl border border-border bg-clip-padding">
@@ -211,9 +216,9 @@ export function OverlaysPreview() {
 						</DialogHeader>
 
 						<div className="space-y-6">
-							{Array.from({ length: 12 }, (_, index) => (
-								<div key={index} className="space-y-2">
-									<h4 className="text-body font-medium">Section {index + 1}</h4>
+							{documentSections.map((section) => (
+								<div key={section.id} className="space-y-2">
+									<h4 className="text-body font-medium">{section.title}</h4>
 
 									<p className="text-body-sm text-muted-foreground">
 										Document properties and additional information about your file.
@@ -291,9 +296,9 @@ export function OverlaysPreview() {
 					))}
 				</div>
 
-				<p role="status" className="text-caption text-muted-foreground">
+				<output className="text-caption text-muted-foreground">
 					{lastAction ? `Last action: ${lastAction}` : "Hover or focus a toolbar button."}
-				</p>
+				</output>
 			</Example>
 
 			<Example title="Tooltip without arrow">
@@ -386,9 +391,9 @@ export function OverlaysPreview() {
 					</DropdownMenu>
 				</div>
 
-				<p role="status" className="text-caption text-muted-foreground">
+				<output className="text-caption text-muted-foreground">
 					{lastAction ? `Selected: ${lastAction}` : "Choose a document action."}
-				</p>
+				</output>
 			</Example>
 
 			<Example title="Checkbox menu items">

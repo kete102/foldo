@@ -257,11 +257,9 @@ export function FormControlsPreview() {
 						<Button type="submit">Save changes</Button>
 					</div>
 
-					{submitted && (
-						<p role="status" className="text-body-sm text-muted-foreground">
-							Form submitted successfully. This is a local demo.
-						</p>
-					)}
+					<output className="text-body-sm text-muted-foreground">
+						{submitted ? "Form submitted successfully. This is a local demo." : ""}
+					</output>
 				</form>
 			</Example>
 		</div>

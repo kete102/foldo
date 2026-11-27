@@ -634,9 +634,9 @@ export function DesignSystem() {
 									</Button>
 								</div>
 
-								<p role="status" className="mt-4 text-body-sm text-muted-foreground">
+								<output className="mt-4 text-body-sm text-muted-foreground">
 									{loading ? "Processing document..." : "Ready"}
-								</p>
+								</output>
 							</Preview>
 
 							<Preview title="Composition">
