@@ -200,6 +200,9 @@ importers:
       '@foldo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
       lucide-react:
         specifier: ^1.81.0
         version: 1.81.0(@types/react@19.3.3)(react@19.3.0)
