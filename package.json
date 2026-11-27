@@ -1,43 +1,43 @@
 {
-  "name": "foldo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "typecheck": "turbo run typecheck",
-    "lint": "biome lint .",
-    "lint:fix": "biome lint --write .",
-    "format": "biome format --write .",
-    "format:check": "biome format .",
-    "check": "biome check .",
-    "check:fix": "biome check --write .",
-    "test": "turbo run test",
-    "test:watch": "turbo run test:watch",
-    "test:coverage": "turbo run test:coverage",
-    "test:e2e": "turbo run test:e2e",
-    "test:e2e:ui": "pnpm --filter ./apps/web test:e2e:ui",
-    "test:e2e:debug": "pnpm --filter ./apps/web test:e2e:debug",
-    "test:e2e:report": "pnpm --filter ./apps/web test:e2e:report"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "12.23.0",
-      "onFail": "download"
-    }
-  },
-  "packageManager": "pnpm@12.23.0",
-  "engines": {
-    "node": ">=24"
-  },
-  "type": "module",
-  "devDependencies": {
-    "@biomejs/biome": "^2.4.2",
-    "turbo": "^2.11.13"
-  }
+	"name": "foldo",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "turbo run dev",
+		"build": "turbo run build",
+		"typecheck": "turbo run typecheck",
+		"lint": "biome lint .",
+		"lint:fix": "biome lint --write .",
+		"format": "biome format --write .",
+		"format:check": "biome format .",
+		"check": "biome check .",
+		"check:fix": "biome check --write .",
+		"test": "turbo run test",
+		"test:watch": "turbo run test:watch",
+		"test:coverage": "turbo run test:coverage",
+		"test:e2e": "turbo run test:e2e",
+		"test:e2e:ui": "pnpm --filter ./apps/web test:e2e:ui",
+		"test:e2e:debug": "pnpm --filter ./apps/web test:e2e:debug",
+		"test:e2e:report": "pnpm --filter ./apps/web test:e2e:report"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "12.23.0",
+			"onFail": "download"
+		}
+	},
+	"packageManager": "pnpm@12.23.0",
+	"engines": {
+		"node": ">=24"
+	},
+	"type": "module",
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.2",
+		"turbo": "^2.11.13"
+	}
 }
