@@ -1,21 +1,21 @@
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "new-york",
-  "rsc": true,
-  "tsx": true,
-  "tailwind": {
-    "config": "",
-    "css": "../../apps/web/src/app/globals.css",
-    "baseColor": "neutral",
-    "cssVariables": true,
-    "prefix": ""
-  },
-  "iconLibrary": "lucide",
-  "aliases": {
-    "components": "@foldo/ui/components",
-    "utils": "@foldo/ui/lib/utils",
-    "ui": "@foldo/ui/components",
-    "lib": "@foldo/ui/lib",
-    "hooks": "@foldo/ui/hooks"
-  }
+	"$schema": "https://ui.shadcn.com/schema.json",
+	"style": "new-york",
+	"rsc": true,
+	"tsx": true,
+	"tailwind": {
+		"config": "",
+		"css": "../../apps/web/src/app/globals.css",
+		"baseColor": "neutral",
+		"cssVariables": true,
+		"prefix": ""
+	},
+	"iconLibrary": "lucide",
+	"aliases": {
+		"components": "@foldo/ui/components",
+		"utils": "@foldo/ui/lib/utils",
+		"ui": "@foldo/ui/components",
+		"lib": "@foldo/ui/lib",
+		"hooks": "@foldo/ui/hooks"
+	}
 }
